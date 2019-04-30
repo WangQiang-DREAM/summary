@@ -21,9 +21,14 @@
         }
 
         @action getData = async () => {
-            let result = await getData();
-            this.data = result;
-            this.updateCount++;
+            try{
+                let result = await getData();
+                this.data = result;
+            } catch(error){
+                throw error
+            } finally{
+                this.updateCount++;
+            }
         }
     ```
     `component`
